@@ -31,7 +31,7 @@ jobs:
         run: mvn clean package -DskipTests
       - name: docker compose build 
         working-directory: .
-        run: docker compose build
+        run: docker compose build book
       - name: Push to Docker Hub Container Registry
         run: |
           docker tag ${{ secrets.DOCKER_USERNAME }}/book:latest ${{ secrets.DOCKER_USERNAME }}/book:${{github.run_id}}
